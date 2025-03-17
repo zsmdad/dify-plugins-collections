@@ -1,0 +1,30 @@
+# https://github.com/chubin/wttr.in
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: wttr天气查询接口
+  license:
+    name: MIT
+servers:
+  - url: https://wttr.in
+paths:
+  /:
+    get:
+      summary: 获取某个城市的天气
+      operationId: 天气查询
+      tags:
+        - weather
+      parameters:
+        - name: city
+          in: query
+          description: 城市名
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          description: 返回格式
+          required: false
+          schema:
+            type: string
+            default: j1

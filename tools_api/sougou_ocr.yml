@@ -1,0 +1,24 @@
+# https://github.com/chubin/wttr.in
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: 搜狗ocr识别
+servers:
+  - url: http://ocr.shouji.sogou.com/v2/ocr/json
+paths:
+  /:
+    post:
+      summary: ocr识别
+      operationId: ocr识别
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                pic:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: 返回ocr识别结果
